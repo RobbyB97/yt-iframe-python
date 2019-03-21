@@ -3,20 +3,19 @@ from os import path
 
 dir = path.abspath(path.dirname(__file__))
 
-with open('README.md', 'r') as f:
+with open(path.join(dir, 'README.md'), 'r') as f:
     desc = f.read()
 
-with open('requirements.txt', 'r') as f:
-    requirements = f.read().splitlines()
+requirements = ['beautifulsoup4', 'lxml', 'requests']
 
 setuptools.setup(
       name='yt_iframe',
-      version='0.3',
+      version='0.5',
       description='YouTube video iframe generator',
       long_description=desc,
       long_description_content_type='text/markdown',
       install_requires=requirements,
-      url='https://github.com/RobbyB97/yt-iframe-python/tree/v0.3',
+      url='https://github.com/RobbyB97/yt-iframe-python/tree/v0.5',
       author='Robby Bergers',
       author_email='bergersr@my.easternct.edu',
       license='MIT',
