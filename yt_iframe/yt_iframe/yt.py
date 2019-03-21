@@ -39,4 +39,9 @@ def channel(link):
     for entry in soup.findAll('link'):
         if '/watch?v=' in entry['href']:
             links.append(entry['href'])
+
+    # Convert links to iframes
+    for vid in links:
+        frame = video(vid)
+        iframes.append(frame)
     return iframes
