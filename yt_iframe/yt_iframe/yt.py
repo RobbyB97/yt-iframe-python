@@ -28,6 +28,12 @@ def channel(link):
 
     try:
         # Get RSS feed
-        feed = requests.get(link)
+        feed = requests.get(link).text
+        print(link)
+        soup = bs(feed, "lxml")
+    except:
+        print('yt.channel - Error! Could not parse xml feed.')
 
+    for entry in soup.findAll('link'):
+        print(entry['href'])
     return iframes
