@@ -1,0 +1,7 @@
+# Ignore pycache
+*.pyc
+
+# Ignore PyPI meta
+yt_iframe/dist/*
+yt_iframe/yt_iframe.egg-info/*
+yt_iframe/build/*
