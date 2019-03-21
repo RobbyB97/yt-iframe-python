@@ -4,7 +4,7 @@ yt_iframe is a python module which can convert a youtube video link into an embe
 In order to use this module, install it through your terminal.
 
 ``` console
-foo@bar:~$ pip install yt_iframe
+foo@bar:~$ pip install yt-iframe
 ```
 
 ``` python
