@@ -18,6 +18,7 @@ def video(link):
 def channel(link):
     # link = youtube channel url. Return iframes in list
     iframes = []       # list of iframes
+    links = []      # list of video links
 
     try:
         # Get from channel link to RSS
@@ -34,6 +35,8 @@ def channel(link):
     except:
         print('yt.channel - Error! Could not parse xml feed.')
 
+    # Add video links to links list
     for entry in soup.findAll('link'):
-        print(entry['href'])
+        if '/watch?v=' in entry['href']:
+            links.append(entry['href'])
     return iframes
