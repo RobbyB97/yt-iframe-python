@@ -26,7 +26,7 @@ def channel(link):
         user = requests.get(link).text
         soup = bs(user, 'lxml')
         link = soup.find("link", {"rel":"canonical"})
-        return channel(link['href'])
+        return channelURL(link['href'])
     def channelURL(link):
         link = link.split('/channel/')[1]
         link = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + link
@@ -49,3 +49,11 @@ def channel(link):
         if '/watch?v=' in entry['href']:
             links.append(entry['href'])
     return links
+
+def getFrames(links):
+    # Convert links list to iframes list
+    iframes = []
+    for vid in links:
+        frame = video(vid)
+        iframes.append(frame)
+    return iframes
