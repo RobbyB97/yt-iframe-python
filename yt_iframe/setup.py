@@ -10,12 +10,12 @@ requirements = ['beautifulsoup4', 'lxml', 'requests']
 
 setuptools.setup(
       name='yt_iframe',
-      version='0.6',
+      version='0.7',
       description='YouTube video iframe generator',
       long_description=desc,
       long_description_content_type='text/markdown',
       install_requires=requirements,
-      url='https://github.com/RobbyB97/yt-iframe-python/tree/v0.6',
+      url='https://github.com/RobbyB97/yt-iframe-python/tree/v0.7',
       author='Robby Bergers',
       author_email='bergersr@my.easternct.edu',
       license='MIT',
