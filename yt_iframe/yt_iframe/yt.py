@@ -15,6 +15,7 @@ def video(link):
 
     return string
 
+
 def channel(link):
     # link = youtube channel url. Return iframes in list
     iframes = []       # list of iframes
@@ -32,26 +33,19 @@ def channel(link):
         return link
 
     # Get RSS URL from channel URL
-    if link.split('/channel/')[1]:
-        link = channelURL(link)
-    elif link.split('/user/')[1]:
-        link = userURL(link)
+    if '/channel/' in link:
+        xml = channelURL(link)
+    elif '/user/' in link:
+        xml = userURL(link)
     else:
+        print('yt.channel - Error! Not a valid link')
 
-    try:
-        # Get RSS feed
-        feed = requests.get(link).text
-        soup = bs(feed, "lxml")
-    except:
-        print('yt.channel - Error! Could not parse xml feed.')
+    # Get RSS feed
+    feed = requests.get(xml).text
+    xmlsoup = bs(feed, "lxml")
 
     # Add video links to links list
-    for entry in soup.findAll('link'):
+    for entry in xmlsoup.findAll('link'):
         if '/watch?v=' in entry['href']:
             links.append(entry['href'])
-
-    # Convert links to iframes
-    for vid in links:
-        frame = video(vid)
-        iframes.append(frame)
-    return iframes
+    return links
