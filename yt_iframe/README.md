@@ -25,8 +25,16 @@ iframe = yt.video(url)
 ___
 ### yt.channel()
 The channel() function takes a youtube channel link as a string argument.
-It returns a list of iframe strings.
+It returns a list of youtube video links.
 ``` python
 url = 'https://www.youtube.com/user/ouramazingspace'
-iframelist = yt.channel(url)
+videolist = yt.channel(url)
+```
+___
+### yt.getFrames()
+The getFrames() function takes a list of youtube videos as a list argument.
+It returns a list of iframes.
+``` python
+url = 'https://www.youtube.com/user/ouramazingspace'
+iframes = yt.getFrames(yt.channel(url))
 ```
