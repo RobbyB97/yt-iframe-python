@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup as bs
 import requests
+from time import sleep
 
 
 def video(link):
@@ -14,18 +15,28 @@ def video(link):
 
     return string
 
-
 def channel(link):
     # link = youtube channel url. Return iframes in list
     iframes = []       # list of iframes
     links = []      # list of video links
 
-    try:
-        # Get from channel link to RSS
+    # Inner methods for finding RSS URL
+    def userURL(link):
+        user = requests.get(link).text
+        soup = bs(user, 'lxml')
+        link = soup.find("link", {"rel":"canonical"})
+        return channel(link['href'])
+    def channelURL(link):
         link = link.split('/channel/')[1]
         link = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + link
-    except:
-        print('yt.channel - Error! Not a valid link.')
+        return link
+
+    # Get RSS URL from channel URL
+    if link.split('/channel/')[1]:
+        link = channelURL(link)
+    elif link.split('/user/')[1]:
+        link = userURL(link)
+    else:
 
     try:
         # Get RSS feed
