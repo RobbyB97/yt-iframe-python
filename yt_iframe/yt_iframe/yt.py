@@ -3,7 +3,7 @@ import requests
 from time import sleep
 
 
-def video(link, width="650", height="315"):
+def video(link, width="560", height="315"):
     # link = youtube video url. Return iframe as string
     # width, height = size of iframe
     string = ''     # iframe string
@@ -97,7 +97,7 @@ def channelDict(link):
     return channel
 
 
-def getFrames(links, framewidth="650", frameheight="315"):
+def getFrames(links, framewidth="560", frameheight="315"):
     # Convert links list to iframes list
     iframes = []
     for vid in links:
