@@ -3,13 +3,14 @@ import requests
 from time import sleep
 
 
-def video(link):
+def video(link, width="650", height="315"):
     # link = youtube video url. Return iframe as string
+    # width, height = size of iframe
     string = ''     # iframe string
 
     try:
         link = link.split('watch?v=')[1]
-        string = '<iframe width="560" height="315" src="https://www.youtube.com/embed/' + link + '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+        string = '<iframe width="'+width+'" height="'+height+'" src="https://www.youtube.com/embed/'+link+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
     except:
         print('yt.video - Error! Not a valid link.')
 
