@@ -33,10 +33,13 @@ videolist = yt.channel(url)
 ___
 ### yt.channelDict()
 the channelDict() function takes a youtube channel link as a string argument.
-It returns a dictionary of links, where the keys are the video titles and the values are the links to the videos.
+It returns a nested dictionary containing the name of the channel, and video titles.
 ``` python
 url = 'https://www.youtube.com/user/ouramazingspace'
 videolist = yt.channelDict(url)
+
+videolist['name'] # Name of channel
+videolist['videos'] # Nested dictionary. Key = video title, Value = link
 ```
 ___
 ### yt.getFrames()
