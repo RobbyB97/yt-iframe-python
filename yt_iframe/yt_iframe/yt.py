@@ -78,6 +78,8 @@ def channelDict(link):
     # Get RSS feed
     feed = requests.get(xml).text
     xmlsoup = bs(feed, "lxml")
+    print(xmlsoup.prettify())
+    print(xmlsoup.find('author').find('name').text)
 
     # Create dictionary entries
     for entry in xmlsoup.findAll('entry'):
@@ -98,3 +100,32 @@ def getFrames(links):
         frame = video(vid)
         iframes.append(frame)
     return iframes
+
+
+def channelName(link):
+    # Get title of Youtube channel
+
+    def userURL(link):
+        user = requests.get(link).text
+        soup = bs(user, 'lxml')
+        link = soup.find("link", {"rel":"canonical"})
+        return channelURL(link['href'])
+    def channelURL(link):
+        link = link.split('/channel/')[1]
+        link = 'https://www.youtube.com/feeds/videos.xml?channel_id=' + link
+        return link
+
+    # Get RSS URL from channel URL
+    if '/channel/' in link:
+        xml = channelURL(link)
+    elif '/user/' in link:
+        xml = userURL(link)
+    else:
+        print('yt.channel - Error! Not a valid link')
+
+    # Get name attribute
+    feed = requests.get(xml).text
+    xmlsoup = bs(feed, "lxml")
+    name = xmlsoup.find('author').find('name').text
+
+    return name
