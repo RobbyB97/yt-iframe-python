@@ -13,7 +13,6 @@ def video(link, width="650", height="315"):
         string = '<iframe width="'+width+'" height="'+height+'" src="https://www.youtube.com/embed/'+link+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
     except:
         print('yt.video - Error! Not a valid link.')
-
     return string
 
 
@@ -98,10 +97,10 @@ def channelDict(link):
     return channel
 
 
-def getFrames(links):
+def getFrames(links, framewidth="650", frameheight="315"):
     # Convert links list to iframes list
     iframes = []
     for vid in links:
-        frame = video(vid)
+        frame = video(vid, width=framewidth, height=frameheight)
         iframes.append(frame)
     return iframes
