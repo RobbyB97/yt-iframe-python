@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href=""/>
+ <id></id>
+ <yt:channelId></yt:channelId>
+ <title></title>
+ <link rel="alternate" href=""/>
+ <author>
+  <name>TestChannel</name>
+  <uri>TestUri</uri>
+ </author>
+ <published>2015-02-01T16:32:30+00:00</published>

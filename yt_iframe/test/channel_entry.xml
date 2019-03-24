@@ -1,0 +1,24 @@
+ <entry>
+  <id></id>
+  <yt:videoId></yt:videoId>
+  <yt:channelId></yt:channelId>
+  <title></title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" />
+  <author>
+   <name></name>
+   <uri></uri>
+  </author>
+  <published></published>
+  <updated></updated>
+  <media:group>
+   <media:title></media:title>
+   <media:content url="" type="" width="640" height="390"/>
+   <media:thumbnail url="" width="480" height="360"/>
+   <media:description></media:description>
+   <media:community>
+    <media:starRating count="575" average="4.90" min="1" max="5"/>
+    <media:statistics views="12086"/>
+   </media:community>
+  </media:group>
+ </entry>
+
