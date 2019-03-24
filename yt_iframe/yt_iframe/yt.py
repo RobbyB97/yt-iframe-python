@@ -60,8 +60,8 @@ def channel(link):
 
     try:
         # Get RSS feed
-        feed = requests.get(link).text
-        soup = bs(feed, "lxml")
+        feed = requests.get(xml).text
+        xmlsoup = bs(feed, "lxml")
     except Exception as e:
         raise InvalidFeed('yt.channel - Error! Could not parse xml feed.') from e
 
