@@ -42,7 +42,7 @@ class TestChannel(TestCase):
     def test_invalid_links(self):
         def _get(url):
             response = MagicMock(spec=Response)
-            entry = '<entry><link rel="alternate" href="https://www.youtube.com/watch?v=" /></entry>'
+            entry = '<entry><link rel="alternate" href="" /></entry>'
             response.text = self.header + entry + self.footer
             return response
 
