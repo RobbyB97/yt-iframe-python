@@ -13,33 +13,8 @@ class InvalidFeed(Exception):
 
 logger = logging.getLogger("yt_iframe")
 
-def video(link, width="560", height="315"):
-    # link = youtube video url. Return iframe as string
-    # width, height = size of iframe
-    string = ''     # iframe string
 
-    try:
-        link = link.split('watch?v=')[1]
-        if not link:
-            raise InvalidLink("Link not found")
-        string = '<iframe width="'+width+'" height="'+height+'" src="https://www.youtube.com/embed/'+link+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-    except Exception as e:
-        raise InvalidLink('yt.video - Error! Not a valid link.') from e
-    return string
-
-def linkResponsive():
-    # Return html link to css stylesheet
-    return '<link rel="stylesheet" href="https://bergers.rocks/packages/yt_iframe.css">'
-
-def videoResponsive(link):
-    # Return html for responsive yt video iframe
-
-    responsive_video = '<div class="yt-iframe-container">'
-    yt_vid = video(link)
-    responsive_video += yt_vid
-    responsive_video += '</div>'
-
-    return responsive_video
+""" YT channel functions """
 
 def channel(link):
     # link = youtube channel url. Return iframes in list
@@ -131,6 +106,22 @@ def channelDict(link):
     return channel
 
 
+""" iFrame functions """
+
+def video(link, width="560", height="315"):
+    # link = youtube video url. Return iframe as string
+    # width, height = size of iframe
+    string = ''     # iframe string
+
+    try:
+        link = link.split('watch?v=')[1]
+        if not link:
+            raise InvalidLink("Link not found")
+        string = '<iframe width="'+width+'" height="'+height+'" src="https://www.youtube.com/embed/'+link+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+    except Exception as e:
+        raise InvalidLink('yt.video - Error! Not a valid link.') from e
+    return string
+
 def getFrames(links, framewidth="560", frameheight="315", responsive=False):
     # Convert links list to iframes list
     iframes = []
@@ -142,3 +133,20 @@ def getFrames(links, framewidth="560", frameheight="315", responsive=False):
         except InvalidLink as e:
             logger.error(e)
     return iframes
+
+
+""" Responsive iFrame functions """
+
+def linkResponsive():
+    # Return html link to css stylesheet
+    return '<link rel="stylesheet" href="https://bergers.rocks/packages/yt_iframe.css">'
+
+def videoResponsive(link):
+    # Return html for responsive yt video iframe
+
+    responsive_video = '<div class="yt-iframe-container">'
+    yt_vid = video(link)
+    responsive_video += yt_vid
+    responsive_video += '</div>'
+
+    return responsive_video
