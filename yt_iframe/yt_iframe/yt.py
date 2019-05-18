@@ -27,6 +27,19 @@ def video(link, width="560", height="315"):
         raise InvalidLink('yt.video - Error! Not a valid link.') from e
     return string
 
+def linkResponsive():
+    # Return html link to css stylesheet
+    return '<link rel="stylesheet" href="https://bergers.rocks/packages/yt_iframe.css">'
+
+def videoResponsive(link):
+    # Return html for responsive yt video iframe
+
+    responsive_video = '<div class="yt-iframe-container">'
+    yt_vid = video(link)
+    responsive_video += yt_vid
+    responsive_video += '</div>'
+
+    return responsive_video
 
 def channel(link):
     # link = youtube channel url. Return iframes in list
@@ -118,13 +131,13 @@ def channelDict(link):
     return channel
 
 
-def getFrames(links, framewidth="560", frameheight="315"):
+def getFrames(links, framewidth="560", frameheight="315", responsive=False):
     # Convert links list to iframes list
     iframes = []
     for vid in links:
 
         try:
-            frame = video(vid, width=framewidth, height=frameheight)
+            frame = video(vid, width=framewidth, height=frameheight, responsive=responsive)
             iframes.append(frame)
         except InvalidLink as e:
             logger.error(e)
