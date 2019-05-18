@@ -13,7 +13,7 @@ class InvalidFeed(Exception):
 
 logger = logging.getLogger("yt_iframe")
 
-def video(link, width="560", height="315", responsive=False):
+def video(link, width="560", height="315"):
     # link = youtube video url. Return iframe as string
     # width, height = size of iframe
     string = ''     # iframe string
@@ -27,6 +27,11 @@ def video(link, width="560", height="315", responsive=False):
         raise InvalidLink('yt.video - Error! Not a valid link.') from e
     return string
 
+def link_responsive():
+    return '<link rel="stylesheet" href="https://bergers.rocks/packages/yt_iframe.css"'
+
+def video_responsive(link):
+    return
 
 def channel(link):
     # link = youtube channel url. Return iframes in list
