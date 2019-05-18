@@ -62,6 +62,9 @@ iframes = yt.getFrames(channel, framewidth=framewidth, frameheight=frameheight)
 ___
 ## Changelog
 
+### == v1.0.3 ==
+* _Add responsive iframes_
+
 ### == v1.0.1 ==
 * _Allow size of iframe to be specified in video function_
 * _Allow sizes of iframes to be specified in getFrames function_
