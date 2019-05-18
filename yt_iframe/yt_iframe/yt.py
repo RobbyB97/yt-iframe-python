@@ -125,11 +125,14 @@ def video(link, width="560", height="315"):
 def getFrames(links, framewidth="560", frameheight="315", responsive=False):
     # Convert links list to iframes list
     iframes = []
-    for vid in links:
 
+    for vid in links:
         try:
-            frame = video(vid, width=framewidth, height=frameheight, responsive=responsive)
-            iframes.append(frame)
+            if responsive:
+                frame = videoResponsive(vid, width=framewidth, height=frameheight, responsive=responsive)
+            else:
+                frame = video(vid, width=framewidth, height=frameheight, responsive=responsive)
+                iframes.append(frame)
         except InvalidLink as e:
             logger.error(e)
     return iframes
@@ -141,11 +144,11 @@ def linkResponsive():
     # Return html link to css stylesheet
     return '<link rel="stylesheet" href="https://bergers.rocks/packages/yt_iframe.css">'
 
-def videoResponsive(link):
+def videoResponsive(link, width="560", height="315"):
     # Return html for responsive yt video iframe
 
     responsive_video = '<div class="yt-iframe-container">'
-    yt_vid = video(link)
+    yt_vid = video(link, width=width, height=height)
     responsive_video += yt_vid
     responsive_video += '</div>'
 
