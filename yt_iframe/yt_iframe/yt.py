@@ -28,7 +28,7 @@ def video(link, width="560", height="315"):
     return string
 
 def link_responsive():
-    return '<link rel="stylesheet" href="https://bergers.rocks/packages/yt_iframe.css"'
+    return '<link rel="stylesheet" href="https://bergers.rocks/packages/yt_iframe.css">'
 
 def video_responsive(link):
     # Return html for responsive yt video iframe
