@@ -22,11 +22,7 @@ def video(link, width="560", height="315"):
         link = link.split('watch?v=')[1]
         if not link:
             raise InvalidLink("Link not found")
-
-        if responsive:  # Responsive iframe
-            print('Add me!')
-        else:           # Statically sized iframe
-            string = '<iframe width="'+width+'" height="'+height+'" src="https://www.youtube.com/embed/'+link+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+        string = '<iframe width="'+width+'" height="'+height+'" src="https://www.youtube.com/embed/'+link+'" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
     except Exception as e:
         raise InvalidLink('yt.video - Error! Not a valid link.') from e
     return string
