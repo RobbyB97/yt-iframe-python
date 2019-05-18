@@ -128,11 +128,13 @@ def getFrames(links, framewidth="560", frameheight="315", responsive=False):
 
     for vid in links:
         try:
+
+            # Get responsive or statically sized iframe
             if responsive:
-                frame = videoResponsive(vid, width=framewidth, height=frameheight, responsive=responsive)
+                frame = videoResponsive(vid, width=framewidth, height=frameheight)
             else:
-                frame = video(vid, width=framewidth, height=frameheight, responsive=responsive)
-                iframes.append(frame)
+                frame = video(vid, width=framewidth, height=frameheight)
+            iframes.append(frame)
         except InvalidLink as e:
             logger.error(e)
     return iframes
