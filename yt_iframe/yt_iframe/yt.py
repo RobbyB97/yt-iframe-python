@@ -122,7 +122,7 @@ def video(link, width="560", height="315"):
         raise InvalidLink('yt.video - Error! Not a valid link.') from e
     return string
 
-def getFrames(links, framewidth="560", frameheight="315", responsive=False):
+def getFrames(links, width="560", height="315", responsive=False):
     # Convert links list to iframes list
     iframes = []
 
@@ -131,9 +131,9 @@ def getFrames(links, framewidth="560", frameheight="315", responsive=False):
 
             # Get responsive or statically sized iframe
             if responsive:
-                frame = videoResponsive(vid, width=framewidth, height=frameheight)
+                frame = videoResponsive(vid, width=width, height=height)
             else:
-                frame = video(vid, width=framewidth, height=frameheight)
+                frame = video(vid, width=width, height=height)
             iframes.append(frame)
         except InvalidLink as e:
             logger.error(e)
