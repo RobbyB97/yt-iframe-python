@@ -27,10 +27,11 @@ def video(link, width="560", height="315"):
         raise InvalidLink('yt.video - Error! Not a valid link.') from e
     return string
 
-def link_responsive():
+def linkResponsive():
+    # Return html link to css stylesheet
     return '<link rel="stylesheet" href="https://bergers.rocks/packages/yt_iframe.css">'
 
-def video_responsive(link):
+def videoResponsive(link):
     # Return html for responsive yt video iframe
 
     responsive_video = '<div class="yt-iframe-container">'
