@@ -31,7 +31,14 @@ def link_responsive():
     return '<link rel="stylesheet" href="https://bergers.rocks/packages/yt_iframe.css"'
 
 def video_responsive(link):
-    return
+    # Return html for responsive yt video iframe
+
+    responsive_video = '<div class="yt-iframe-container">'
+    yt_vid = video(link)
+    responsive_video += yt_vid
+    responsive_video += '</div>'
+
+    return responsive_video
 
 def channel(link):
     # link = youtube channel url. Return iframes in list
