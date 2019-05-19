@@ -31,7 +31,7 @@ The **channel()** function takes a youtube channel link as a string argument.
 It returns a list of youtube video links.
 
 ``` python
-url = 'https://www.youtube.com/user/ouramazingspace'
+url = 'https://www.youtube.com/user/ouramazingspace' # (Required)
 videolist = yt.channel(url)
 ```
 ___
@@ -57,15 +57,30 @@ It returns a list of iframes.
 channel = yt.channel('https://www.youtube.com/user/ouramazingspace') # (Required)
 framewidth = '560' # (Optional)
 frameheight = '315' # (Optional)
+responsive = True # (Optional)
 
+# Fixed size iframes
 iframes = yt.getFrames(channel, width=framewidth, height=frameheight)
+
+# Responsive iframes
+iframes = yt.getFrames(channel, responsive=responsive)
 ```
 ___
 ### yt.linkResponsive()
 The **linkResponsive()** function returns a line of html which links the stylesheet needed for responsive iframes.
+Alternatively, you can add this line of html in your head tag.
+'<link rel="stylesheet" href="https://bergers.rocks/packages/yt_iframe.css">'
 ___
 ### yt.videoResponsive()
+The **videoResponsive()** function is similar to the _video()_ function, except it returns the html for a responsive iframe.
+In order to use responsive iframes, make sure the css file is linked in the html file with the _linkResponsive()_ function.
+Responsive iframes will either take up 100% of the width of the screen, or 100% the width of their parent element.
 
+``` python
+url = 'https://www.youtube.com/watch?v=UzIQOQGKeyI' # (Required)
+
+video = yt.videoResponsive(url)
+```
 ___
 ## Changelog
 
