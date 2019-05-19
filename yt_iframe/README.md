@@ -1,6 +1,6 @@
 YT iframe Generator
 ================
-yt_iframe is a python module which can convert a youtube video link into an embeddable iframe.
+_yt_iframe_ is a python module which can convert a youtube video link into an embeddable iframe.
 In order to use this module, install it through your terminal.
 
 ``` console
@@ -88,8 +88,8 @@ ___
 * _Add responsive iframes_
 
 ### == v1.0.1 ==
-* _Allow size of iframe to be specified in video function_
-* _Allow sizes of iframes to be specified in getFrames function_
+* _Allow size of iframe to be specified in video() function_
+* _Allow sizes of iframes to be specified in getFrames() function_
 
 ### == v1.0.0 ==
 * _Initial release_
