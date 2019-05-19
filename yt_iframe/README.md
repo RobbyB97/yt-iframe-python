@@ -49,7 +49,8 @@ videolist['videos'] # Nested dictionary. Key = video title, Value = link
 ___
 ### yt.getFrames()
 The **getFrames()** function takes a list of youtube videos as a list argument.
-There are _framewidth_ and _frameheight_ optional arguments, so the size of the iframes can be specified.
+There are _width_ and _height_ arguments (defaults are 560 and 315 respectively), so the size of the iframes can be specified.
+There is also a _responsive_ argument (defaults to false) which returns html for responsive iframes.
 It returns a list of iframes.
 
 ``` python
@@ -57,8 +58,14 @@ channel = yt.channel('https://www.youtube.com/user/ouramazingspace') # (Required
 framewidth = '560' # (Optional)
 frameheight = '315' # (Optional)
 
-iframes = yt.getFrames(channel, framewidth=framewidth, frameheight=frameheight)
+iframes = yt.getFrames(channel, width=framewidth, height=frameheight)
 ```
+___
+### yt.linkResponsive()
+The **linkResponsive()** function returns a line of html which links the stylesheet needed for responsive iframes.
+___
+### yt.videoResponsive()
+
 ___
 ## Changelog
 
