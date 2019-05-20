@@ -158,7 +158,7 @@ def videoResponsive(link, layout='singlecolumn'):
         log.warning('%s is not a proper layout. Defaulting to single column...' % layout)
         responsive_video = '<div class="yt-iframe-container">'
 
-    # Get video and close tags    
+    # Get video and close tags
     yt_vid = video(link)
     responsive_video += yt_vid
     responsive_video += '</div>'
