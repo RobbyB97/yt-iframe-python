@@ -55,12 +55,12 @@ It returns a list of iframes.
 
 ``` python
 channel = yt.channel('https://www.youtube.com/user/ouramazingspace') # (Required)
-framewidth = '560' # (Optional)
-frameheight = '315' # (Optional)
+width = '560' # (Optional)
+height = '315' # (Optional)
 responsive = True # (Optional)
 
 # Fixed size iframes
-iframes = yt.getFrames(channel, width=framewidth, height=frameheight)
+iframes = yt.getFrames(channel, width=width, height=height)
 
 # Responsive iframes
 iframes = yt.getFrames(channel, responsive=responsive)
@@ -74,18 +74,24 @@ ___
 ### yt.videoResponsive()
 The **videoResponsive()** function is similar to the _video()_ function, except it returns the html for a responsive iframe.
 In order to use responsive iframes, make sure the css file is linked in the html file with the _linkResponsive()_ function.
-Responsive iframes will either take up 100% of the width of the screen, or 100% the width of their parent element.
+There are two possible layout options for responsive iframes. _singlecolumn_ takes up 100% the width of the parent element, _twocolumn_ will take up 50% and float left.
 
 ``` python
 url = 'https://www.youtube.com/watch?v=UzIQOQGKeyI' # (Required)
+layout = 'singlecolumn' # (Optional)
 
-video = yt.videoResponsive(url)
+video = yt.videoResponsive(url, layout=layout) # Get HTML
 ```
 ___
 ## Changelog
 
+### == v1.0.4 ==
+* _Add layout argument to videoResponsive() and getFrames()_
+* _Add two column layout option to videoResponsive()_
+
 ### == v1.0.3 ==
 * _Add responsive iframes_
+* _getFrames() arguments changed from framewidth and frameheight to width and height_
 
 ### == v1.0.1 ==
 * _Allow size of iframe to be specified in video() function_
