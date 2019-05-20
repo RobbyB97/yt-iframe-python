@@ -146,11 +146,20 @@ def linkResponsive():
     # Return html link to css stylesheet
     return '<link rel="stylesheet" href="https://bergers.rocks/packages/yt_iframe.css">'
 
-def videoResponsive(link, width="560", height="315"):
+def videoResponsive(link, layout='singlecolumn'):
     # Return html for responsive yt video iframe
 
-    responsive_video = '<div class="yt-iframe-container">'
-    yt_vid = video(link, width=width, height=height)
+    # Set layout
+    if layout == 'singlecolumn':
+        responsive_video = '<div class="yt-iframe-container">'
+    elif layout == 'twocolumn':
+        responsive_video = '<div class="yt-iframe-twocolumn">'
+    else:
+        log.warning('%s is not a proper layout. Defaulting to single column...' % layout)
+        responsive_video = '<div class="yt-iframe-container">'
+
+    # Get video and close tags    
+    yt_vid = video(link)
     responsive_video += yt_vid
     responsive_video += '</div>'
 
