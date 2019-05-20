@@ -84,8 +84,13 @@ video = yt.videoResponsive(url)
 ___
 ## Changelog
 
+### == v1.0.4 ==
+* _Add layout argument to videoResponsive() and getFrames()_
+* _Add two column layout option to videoResponsive()_ 
+
 ### == v1.0.3 ==
 * _Add responsive iframes_
+* _getFrames() arguments changed from framewidth and frameheight to width and height_
 
 ### == v1.0.1 ==
 * _Allow size of iframe to be specified in video() function_
