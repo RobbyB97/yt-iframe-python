@@ -10,7 +10,7 @@ requirements = ['beautifulsoup4', 'lxml', 'requests']
 
 setuptools.setup(
       name='yt_iframe',
-      version='1.0.4',
+      version='1.0.5',
       description='YouTube video iframe generator',
       long_description=desc,
       long_description_content_type='text/markdown',
