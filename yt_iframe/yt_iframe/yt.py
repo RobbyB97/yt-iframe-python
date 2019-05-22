@@ -154,6 +154,12 @@ def videoResponsive(link, layout='singlecolumn'):
         responsive_video = '<div class="yt-iframe-container">'
     elif layout == 'twocolumn':
         responsive_video = '<div class="yt-iframe-twocolumn">'
+    elif layout == 'threecolumn':
+        responsive_video = '<div class="yt-iframe-threecolumn">'
+    elif layout == 'fourcolumn':
+        responsive_video = '<div class="yt-iframe-fourcolumn">'
+    elif layout == 'responsive':
+        responsive_video = '<div class="yt-iframe-responsive">'
     else:
         log.warning('%s is not a proper layout. Defaulting to single column...' % layout)
         responsive_video = '<div class="yt-iframe-container">'
@@ -162,5 +168,4 @@ def videoResponsive(link, layout='singlecolumn'):
     yt_vid = video(link)
     responsive_video += yt_vid
     responsive_video += '</div>'
-
     return responsive_video
