@@ -7,4 +7,4 @@ yt_iframe/yt_iframe.egg-info/*
 yt_iframe/build/*
 
 # Ignore venv
-venv/*
+venv/
