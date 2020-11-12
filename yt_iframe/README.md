@@ -22,7 +22,7 @@ from yt_iframe import yt
 ## Using the module
 
 ### yt.video()
->   Generates a YouTube embed videoiFrame from a given YouTube video link.
+>   Generates a YouTube embed video iFrame from a YouTube video link.
 
 ``` python
 url = 'https://www.youtube.com/watch?v=UzIQOQGKeyI' # (Required)
@@ -46,7 +46,7 @@ iframe = yt.video(url, width=width, height=height)
 ---
 
 ### yt.channel()
->   Generates a list of YouTube video links from a given channel.
+>   Generates a list of YouTube video links from a YouTube channel.
 
 ``` python
 url = 'https://www.youtube.com/user/ouramazingspace' # (Required)
@@ -64,7 +64,7 @@ videolist = yt.channel(url)
 ---
 
 ### yt.channelDict()
->   Generates videos and metadata from a given YouTube channel.
+>   Generates videos and metadata from a YouTube channel.
 
 ``` python
 url = 'https://www.youtube.com/user/ouramazingspace'
