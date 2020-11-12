@@ -131,7 +131,7 @@ iframes = yt.getFrames(channel, responsive=responsive)
 ---
 
 ### yt.videoResponsive()
->   Generates a responsive iFrame video. Make sure you have the css file imported with the linkResponsive() function. You can wrap a bunch of these generates tags in a container and they will resize to fit the layout within that container.
+>   Generates a responsive iFrame video. Make sure you have the css file imported with the linkResponsive() function. You can wrap a bunch of these generated tags in a container and the iFrames will resize to fit the layout within that container.
 
 ``` python
 url = 'https://www.youtube.com/watch?v=UzIQOQGKeyI' # (Required)
