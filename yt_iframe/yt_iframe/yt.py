@@ -38,7 +38,7 @@ def channel(link):
     # Inner methods for finding RSS URL
     def userURL(link):
         user = requests.get(link).text
-        soup = bs(user, 'lxml')
+        soup = bs(user, "html.parser")
         link = soup.find("link", {"rel":"canonical"})
         return channelURL(link['href'])
 
@@ -64,7 +64,7 @@ def channel(link):
     try:
         # Get RSS feed
         feed = requests.get(xml).text
-        xmlsoup = bs(feed, "lxml")
+        xmlsoup = bs(feed, "html.parser")
     except Exception as e:
         raise InvalidFeed('yt.channel - Error! Could not parse xml feed.') from e
 
@@ -98,7 +98,7 @@ def channelDict(link):
     # Get link to RSS feed
     def userURL(link):
         user = requests.get(link).text
-        soup = bs(user, 'lxml')
+        soup = bs(user, "html.parser")
         link = soup.find("link", {"rel":"canonical"})
         return channelURL(link['href'])
     def channelURL(link):
@@ -116,7 +116,7 @@ def channelDict(link):
 
     # Get RSS feed
     feed = requests.get(xml).text
-    xmlsoup = bs(feed, "lxml")
+    xmlsoup = bs(feed, "html.parser")
 
     # Get name of channel
     channel['name'] = xmlsoup.find('author').find('name').text
@@ -216,9 +216,8 @@ def linkResponsive():
 
 
 def videoResponsive(link, layout='onecolumn'):
-    """Generates an iFrame for the repsonsive iFrame layout. It is recommended
-    that you instead use the getFrames function with responsive set to true,
-    instead of calling this function directly.
+    """Generates a responsive iFrame video. Make sure you have the css file
+    imported with the linkResponsive() function. Check the README for more info.
     
     Parameters
     ----------
