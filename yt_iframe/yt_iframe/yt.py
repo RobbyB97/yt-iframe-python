@@ -19,17 +19,17 @@ css_link = 'https://raw.githubusercontent.com/RobbyB97/yt-iframe-python/master/y
 
 
 def channel(link):
-    """Generates a list of youtube video links from a given channel.
+    """Generates a list of YouTube video links from a given channel.
     
     Parameters
     ----------
-    link : str
-        A link to a given YouTube channel.
+    link : str (required)
+        A link to a YouTube channel.
     
     Returns
     -------
     links : list
-        A list of links to youtube videos.
+        A list of links to YouTube videos.
     """
 
     iframes = []       # list of iframes
@@ -80,13 +80,13 @@ def channelDict(link):
     
     Parameters
     ----------
-    link : str
-        A link to a given YouTube channel.
+    link : str (required)
+        A link to a YouTube channel.
     
     Returns
     -------
     channel : dict
-        A dictionary of YouTube channel information.
+        A dictionary of the YouTube channel's information.
         Dictionary key/value pairs:
             name = name of the YouTube channel
             videos = List of video links
@@ -140,12 +140,12 @@ def video(link, width="560", height="315"):
     
     Parameters
     ----------
-    link : str
+    link : str (required)
         A link to a YouTube video.
     width : str
-        The width of the iFrame (in pixels).
+        The width of the iFrame in pixels.
     height : str
-        The height of the iFrame (in pixels).
+        The height of the iFrame in pixels.
     
     Returns
     -------
@@ -168,16 +168,16 @@ def video(link, width="560", height="315"):
 
 
 def getFrames(links, width="560", height="315", responsive=False):
-    """Generates a list of iframes from a given list of YouTube videos.
+    """Generates a list of iFrames from a list of YouTube videos.
     
     Parameters
     ----------
-    links : list
+    links : list (required)
         A list of links to YouTube videos.
     width : str
-        The width of each iFrame (in pixels).
+        The width of each iFrame in pixels.
     height : str
-        The height of each iFrame (in pixels).
+        The height of each iFrame in pixels.
     responsive : bool
         Determines whether each iframe is dynamically (true) or 
         statically (false) sized.
@@ -205,12 +205,12 @@ def getFrames(links, width="560", height="315", responsive=False):
 
 
 def linkResponsive():
-    """Get link to css for styling the iframes
+    """Get link to css for styling the iFrames.
 
     Returns
     -------
     str
-        HTML link tag to add css for iFrames
+        HTML link tag to import css for iFrames
     """
     return '<link rel="stylesheet" href="'+css_link+'">'
 
@@ -221,10 +221,10 @@ def videoResponsive(link, layout='onecolumn'):
     
     Parameters
     ----------
-    link : str
-        A link to a given YouTube video.
+    link : str (required)
+        A link to a YouTube video.
     layout : str
-        Specifies the relative size of the iFrame.
+        Specifies the relative size of the iFrame. 
         Acceptable values:
             onecolumn - Generates one column layout
             twocolumn - Generates two column layout
