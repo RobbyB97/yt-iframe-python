@@ -1,0 +1,29 @@
+Change Log
+==========
+
+1.0.5 (11/12/20)
+----------------
+- Fix css import link
+- Fix argument error in videoResponsive()
+- Fix xml parsing (the lxml dependency issue)
+- Add docstrings for all functions
+- Refactor functions to improve readability
+
+1.0.4
+-----
+- Add layout argument to videoResponsive() and getFrames()
+- Add two column layout option to videoResponsive()
+
+1.0.3
+-----
+- Add responsive iframes
+- getFrames() arguments changed from framewidth and frameheight to width and height
+
+1.0.1
+-----
+- Allow size of iframe to be specified in video() function
+- Allow sizes of iframes to be specified in getFrames() function
+
+1.0.0
+-----
+- Initial release
