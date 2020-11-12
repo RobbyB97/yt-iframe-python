@@ -15,9 +15,9 @@ setuptools.setup(
       long_description=desc,
       long_description_content_type='text/markdown',
       install_requires=requirements,
-      url='https://github.com/RobbyB97/yt-iframe-python/tree/v1.0.1',
+      url='https://github.com/RobbyB97/yt-iframe-python',
       author='Robby Bergers',
-      author_email='bergersr@my.easternct.edu',
+      author_email='bergersr97@gmail.com',
       license='MIT',
       packages=setuptools.find_packages(),
       zip_safe=False
