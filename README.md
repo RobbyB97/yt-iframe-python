@@ -1,23 +1,28 @@
 YT iframe Generator
-================
-_yt_iframe_ is a python module which can convert a youtube video link into an embeddable iframe.
-In order to use this module, install it through your terminal.
+===================
 
+_yt_iframe_ is a python module which can convert a youtube video link into an embeddable iframe.
+
+---
+
+## Getting started
+
+In order to use this module, install it through your terminal.
 ``` console
 foo@bar:~$ pip install yt-iframe
 ```
-___
+
+Import the module in Python.
 ``` python
-# Import statement
 from yt_iframe import yt
 ```
-___
+
+---
+
 ## Using the module
 
 ### yt.video()
-The **video()** function takes the youtube video link as a string argument.
-There are _width_ and _height_ optional arguments, so the size of the iframe can be specified.
-It returns the iframe as a string.
+>   Generates a YouTube embed video iFrame from a YouTube video link.
 
 ``` python
 url = 'https://www.youtube.com/watch?v=UzIQOQGKeyI' # (Required)
@@ -25,19 +30,41 @@ width = '560' # (Optional)
 height = '315' # (Optional)
 iframe = yt.video(url, width=width, height=height)
 ```
-___
+
+**Parameters**
+-   link : str _(required)_
+    -   A link to a YouTube video.
+-   width : str _(optional. default="560")_
+    -   The width of the iFrame in pixels.
+-   height : str _(optional. default="315")_
+    -   The height of the iFrame in pixels.
+
+**Returns**
+- html : str
+    -   The iFrame for the YouTube video.
+
+---
+
 ### yt.channel()
-The **channel()** function takes a youtube channel link as a string argument.
-It returns a list of youtube video links.
+>   Generates a list of YouTube video links from a YouTube channel.
 
 ``` python
 url = 'https://www.youtube.com/user/ouramazingspace' # (Required)
 videolist = yt.channel(url)
 ```
-___
+
+**Parameters**
+-   link : str _(required)_
+    -   A link to a YouTube channel.
+
+**Returns**
+-   links : list
+    -   A list of links to YouTube videos.
+
+---
+
 ### yt.channelDict()
-The **channelDict()** function takes a youtube channel link as a string argument.
-It returns a nested dictionary containing the name of the channel, and video titles.
+>   Generates videos and metadata from a YouTube channel.
 
 ``` python
 url = 'https://www.youtube.com/user/ouramazingspace'
@@ -46,12 +73,22 @@ videolist = yt.channelDict(url)
 videolist['name'] # Name of channel
 videolist['videos'] # Nested dictionary. Key = video title, Value = link
 ```
-___
+
+**Parameters**
+-   link : str _(required)_
+    -   A link to a YouTube channel.
+
+**Returns**
+-   channel : dict
+    -   A dictionary of the YouTube channel's information.
+    -   Key/value pairs:
+        -   name = the name of the YouTube channel
+        -   videos = List of video links
+
+---
+
 ### yt.getFrames()
-The **getFrames()** function takes a list of youtube videos as a list argument.
-There are _width_ and _height_ arguments (defaults are 560 and 315 respectively), so the size of the iframes can be specified.
-There is also a _responsive_ argument (defaults to false) which returns html for responsive iframes.
-It returns a list of iframes.
+>   Generates a list of iFrames from a list of YouTube videos.
 
 ``` python
 channel = yt.channel('https://www.youtube.com/user/ouramazingspace') # (Required)
@@ -65,16 +102,36 @@ iframes = yt.getFrames(channel, width=width, height=height)
 # Responsive iframes
 iframes = yt.getFrames(channel, responsive=responsive)
 ```
-___
+
+**Parameters**
+-   links : list _(required)__
+    -   A list of links to YouTube videos.
+-   width : str _(optional. default="560")_
+    -   The width of each iFrame in pixels.
+-   height : str _(optional. default="315")_
+    -   The height of each iFrame in pixels.
+-   responsive : bool _(optional. default = False)_
+    -   Determines whether each iFrame is dynamically or statically sized.
+
+**Returns**
+-   iframes : list
+    -   List of iFrames.
+
+---
+
 ### yt.linkResponsive()
-The **linkResponsive()** function returns a line of html which links the stylesheet needed for responsive iframes.
-Alternatively, you can add this line of html in your head tag.
-'<link rel="stylesheet" href="https://bergers.rocks/packages/yt_iframe.css">'
-___
+>   Get link to css for styling the iFrames.
+>   Alternatively, you can add this line of html in your head tag.
+>   '<link rel="stylesheet" href="https://raw.githubusercontent.com/RobbyB97/yt-iframe-python/master/yt_iframe/yt_iframe.css">'
+
+**Returns**
+-   str
+    -   HTML link tag to import css for iFrames
+
+---
+
 ### yt.videoResponsive()
-The **videoResponsive()** function is similar to the _video()_ function, except it returns the html for a responsive iframe.
-In order to use responsive iframes, make sure the css file is linked in the html file with the _linkResponsive()_ function.
-There are two possible layout options for responsive iframes. _singlecolumn_ takes up 100% the width of the parent element, _twocolumn_ will take up 50% and float left.
+>   Generates a responsive iFrame video. Make sure you have the css file imported with the linkResponsive() function. You can wrap a bunch of these generated tags in a container and the iFrames will resize to fit the layout within that container.
 
 ``` python
 url = 'https://www.youtube.com/watch?v=UzIQOQGKeyI' # (Required)
@@ -82,8 +139,30 @@ layout = 'singlecolumn' # (Optional)
 
 video = yt.videoResponsive(url, layout=layout) # Get HTML
 ```
-___
+
+**Parameters**
+-   link : str _(required)_
+    -   A link to a YouTube video.
+-   layout : str _(optional. default="onecolumn")_
+    -   Soecifies the relative size of the iFrame.
+    -   Acceptable values:
+        -   'onecolumn' - Generates one column layout
+        -   'twocolumn' - Generates two column video
+
+**Returns**
+-   iframes : list
+    -   List of iFrames.
+
+---
+
 ## Changelog
+
+### == v1.0.5 ==
+* _Fix css import link_
+* _Fix argument error in videoResponsive()_
+* _Fix xml parsing (the lxml dependency issue)_
+* _Add docstrings for all functions_
+* _Refactor functions to improve readability_
 
 ### == v1.0.4 ==
 * _Add layout argument to videoResponsive() and getFrames()_

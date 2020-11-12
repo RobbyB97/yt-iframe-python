@@ -6,7 +6,19 @@ dir = path.abspath(path.dirname(__file__))
 with open(path.join(dir, 'README.md'), 'r') as f:
     desc = f.read()
 
-requirements = ['beautifulsoup4', 'lxml', 'requests']
+requirements = [
+    'bs4', 'certifi', 'chardet', 
+    'idna', 'requests', 'soupsieve',
+    'urllib3'
+]
+
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Intended Audience :: Developers',
+    'Operating System :: Microsoft :: Windows',
+    'License :: OSI Approved :: MIT License',
+    'Programming Language :: Python :: 3'
+]
 
 setuptools.setup(
       name='yt_iframe',
@@ -15,10 +27,11 @@ setuptools.setup(
       long_description=desc,
       long_description_content_type='text/markdown',
       install_requires=requirements,
-      url='https://github.com/RobbyB97/yt-iframe-python/tree/v1.0.1',
+      url='https://github.com/RobbyB97/yt-iframe-python',
       author='Robby Bergers',
-      author_email='bergersr@my.easternct.edu',
+      author_email='bergersr97@gmail.com',
       license='MIT',
+      keywords='web scraper youtube iframe html generator',
       packages=setuptools.find_packages(),
       zip_safe=False
 )
